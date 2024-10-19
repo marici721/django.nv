@@ -21,7 +21,9 @@ jobs:
     machine: true
     steps:
       - checkout
-
+      - run:
+          name: Install Node.js Dependencies
+          command: npm install  # Install npm dependencies
       - run:
           command: docker run --rm -v $(pwd):/src -w /src hysnsec/retire --outputformat json --outputpath retirejs-output.json --severity high || true
 
